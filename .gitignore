@@ -17,3 +17,14 @@ CLAUDE.md
 # Spell data: copied from upstream sources at build time (see scripts/ensureData.ts), not tracked
 /public/data/pf1e/
 /public/data/pf2e/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Compiled JS/d.ts emitted next to .ts sources (sources run via tsx; emit is local-only)
+scripts/*.js
+scripts/*.d.ts
+src/systems/pf2e/build.js
+src/systems/pf2e/build.d.ts
+vite.config.js
+vite.config.d.ts

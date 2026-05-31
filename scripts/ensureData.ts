@@ -60,10 +60,11 @@ if (problems.length) {
   console.error(problems.join('\n'));
   console.error('Set the env var(s) to the absolute path of the upstream JSON, e.g.');
   console.error(
-    '  $env:SPELLS_PF1E_PATH = "D:\\Work\\Personal\\rpg_parser\\pf1_spells.json"  # PowerShell',
+    '  $env:SPELLS_PF1E_PATH = "C:\\path\\to\\pf1_spells.json"   # PowerShell',
   );
   console.error(
-    '  export SPELLS_PF1E_PATH=/path/to/pf1_spells.json                          # bash',
+    '  export SPELLS_PF1E_PATH=/path/to/pf1_spells.json          # bash',
   );
+  console.error('See the "Using the full spell list" section of README.md for where to obtain the JSON.');
   process.exit(1);
 }
