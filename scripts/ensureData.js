@@ -1,5 +1,5 @@
 /**
- * Ensure per-system spell data exists before a build.
+ * Ensure per-system spell data exists before dev or a build.
  *
  * Both PF1e and PF2e load verbatim upstream JSON and normalize at runtime, so the
  * files under public/data/<id>/spells.json are derived artifacts copied from an
@@ -13,7 +13,7 @@
  * Existing files are never overwritten. If a file is missing and its source env
  * var is unset (or points at a nonexistent file), the build fails (exit 1).
  *
- * Runs automatically via the `prebuild` npm hook.
+ * Runs automatically via the `predev` and `prebuild` npm hooks.
  */
 import { existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';

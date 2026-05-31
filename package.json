@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "build:data:pf2e": "tsx src/systems/pf2e/build.ts",
     "preview": "vite preview",
-    "deploy": "bash deploy.sh",
+    "deploy": "npm run build && tsx --env-file-if-exists=.env scripts/deploy.ts",
     "prepare:upload": "npm run build && tsx scripts/prepareUpload.ts"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1057.0",
     "@types/node": "^25.9.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

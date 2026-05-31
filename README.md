@@ -19,10 +19,17 @@ npm run preview       # serve dist/ locally
 
 ## Deploy (AWS S3)
 
-```bash
-export S3_BUCKET=your-bucket
-export CF_DISTRIBUTION_ID=optional-cloudfront-id
-npm run deploy
+Put your AWS config in `.env` (see `.env.example`):
+
+```
+S3_BUCKET=your-bucket
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=...
+AWS_SECRET_ACCESS_KEY=...
 ```
 
-`deploy.sh` syncs `dist/` to S3 with appropriate cache headers, then invalidates CloudFront if configured.
+```bash
+npm run deploy        # build, then push dist/ to S3
+```
+
+`scripts/deploy.ts` is a cross-platform Node script (AWS SDK v3 — no AWS CLI needed). It builds, then uploads `dist/` to S3 with per-tier cache headers (`index.html` no-cache, `data/**` 1h, hashed assets immutable) and removes stale hashed assets.
