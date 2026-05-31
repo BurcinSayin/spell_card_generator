@@ -1,0 +1,204 @@
+[
+    {
+        "id": "abyssal-plague",
+        "Name": "Abyssal Plague",
+        "Actions": "Two Actions",
+        "Level": "5",
+        "Traits": [
+            "Chaotic",
+            "Disease",
+            "Evil",
+            "Necromancy"
+        ],
+        "Source": "Core Rulebook pg. 316",
+        "Traditions": "divine , occult",
+        "Bloodline": "demonic",
+        "Cast": "[two-actions] somatic , verbal",
+        "Range": "touch;",
+        "Targets": "1 creature",
+        "Saving Throw": "Fortitude",
+        "Description": "Your touch afflicts the target with Abyssal plague, which siphons fragments of their soul away to empower the Abyss. The effect is based on the target's Fortitude save.\nAbyssal Plague\n(disease);\nLevel\n9. The target can't recover from the drained condition from Abyssal plague until the disease is cured.\nStage 1\ndrained 1 (1 day);\nStage 2\ndrained increases by 2 (1 day).\nCritical Success\nThe target is unaffected.\nSuccess\nThe target takes 2 evil damage per spell level, and takes a –2 status penalty to saves against Abyssal plague for 1 day or until the target contracts it, whichever comes first.\nFailure\nThe target is afflicted with Abyssal plague at stage 1.\nCritical Failure\nThe target is afflicted with Abyssal plague at stage 2."
+    },
+    {
+        "id": "air-walk",
+        "Name": "Air Walk",
+        "Actions": "Two Actions",
+        "Level": "4",
+        "Traits": [
+            "Air",
+            "Transmutation"
+        ],
+        "Source": "Core Rulebook pg. 317",
+        "Traditions": "divine , primal",
+        "Cast": "[two-actions] somatic , verbal",
+        "Range": "touch;",
+        "Targets": "1 creature",
+        "Duration": "5 minutes",
+        "Description": "The target can walk on air as if it were solid ground. It can ascend and descend in this way at a maximum of a 45-degree angle."
+    },
+    {
+        "id": "anathematic-reprisal",
+        "Name": "Anathematic Reprisal",
+        "Actions": "Reaction",
+        "Level": "4",
+        "Traits": [
+            "Enchantment",
+            "Mental"
+        ],
+        "Source": "Core Rulebook pg. 317",
+        "Traditions": "divine",
+        "Cast": "[reaction] somatic , verbal ;",
+        "Range": "30 feet;",
+        "Targets": "the triggering creature",
+        "Saving Throw": "Will",
+        "heightened": [
+            {
+                "label": "+1",
+                "text": "The damage increases by 1d6."
+            }
+        ],
+        "Description": "You punish a creature that transgresses against your deity, drawing upon the anguish you feel upon seeing one of your deity's anathema committed.\nYou can cast this spell only when a creature actively commits a unique act of anathema. For example, if creating undead were anathema to your deity, you could use\nanathematic reprisal\non a necromancer who had just created undead in front of you, but not on an undead creature just for existing.\nYou deal 4d6 mental damage to the target, but a basic Will save can reduce this damage. If it fails, it is also stupefied 1 for 1 round. The creature is then temporarily immune for 1 minute."
+    },
+    {
+        "id": "antimagic-field",
+        "Name": "Antimagic Field",
+        "Actions": "Three Actions",
+        "Level": "8",
+        "Traits": [
+            "Rare",
+            "Abjuration"
+        ],
+        "Source": "Core Rulebook pg. 318",
+        "Traditions": "arcane , divine , occult",
+        "Cast": "[three-actions] material , somatic , verbal",
+        "Area": "10-foot emanation, which affects you",
+        "Duration": "sustained up to 1 minute",
+        "Description": "You repel all magic from the target area, preventing spells and other magic from functioning. Spells can't penetrate the area, magic items cease to function within it, and no one inside can cast spells or use magic abilities. Likewise, spells—such as\ndispel magic\n—can't affect the field itself unless they are of a higher level. Magic effects resume the moment they pass outside the field. For example, a ray fired from one side of the field could target a creature on the other side (as long as caster and target are both outside the field). A summoned creature winks out of existence but reappears if the field moves or ends. Invested magic items cease to function, but they remain invested and resume functioning when they exit the field; the ability boost from an apex item isn't suppressed within the field. Spells of a higher level than the\nantimagic field\novercome its effects, and can even be cast by a creature within the field.\nThe field disrupts only magic, so a\n+3 longsword\nstill functions as a longsword. Magically created creatures (such as golems) function normally within an\nantimagic field\n."
+    },
+    {
+        "id": "chromatic-wall",
+        "Name": "Chromatic Wall",
+        "Actions": "Three Actions",
+        "Level": "5",
+        "Traits": [
+            "Abjuration"
+        ],
+        "Source": "Core Rulebook pg. 323",
+        "Traditions": "arcane , occult",
+        "Bloodline": "draconic",
+        "Cast": "[three-actions] material , somatic , verbal",
+        "Range": "120 feet",
+        "Duration": "10 minutes",
+        "heightened": [
+            {
+                "label": "7th",
+                "text": "The spell's duration increases to 1 hour. Roll 1d8 to determine the wall's color; the results for 5–8 are below. A red, orange, yellow, or green wall deals an extra 10 damage. BlueThe wall stopsauditory, petrification,sonic, andvisualeffects from passing through, and creatures passing through are subject to the effects offlesh to stone.Magic missilecan counteract a bluechromatic wall.IndigoThe wall stopsdivinationandmentaleffects from passing through, and those passing through are subject to the effects ofwarp mind.Searing lightcan counteract an indigochromatic wall.VioletThe wall prevents spells from targeting the other side (area effects still cross as normal). Creatures passing through must succeed at a Will save or they areslowed 1for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect ofplane shift.Dispel magiccan counteract a violetchromatic wall.Reroll, and creatures that pass through the wall take a –2 circumstance penalty to their saves."
+            }
+        ],
+        "Description": "You create an opaque wall of light in a single vibrant color. The wall is straight and vertical, stretching 60 feet long and 30 feet high. If the wall would pass through a creature, the spell is lost. The wall sheds bright light for 20 feet on each side, and dim light for the next 20 feet. You can ignore the wall's effects.\nRoll 1d4 to determine the color of the wall. Each color has a particular effect on items, effects, or creatures that attempt to pass through.\nChromatic wall\ncan't be\ncounteracted\nnormally; rather, each color is automatically counteracted when targeted by a specific spell, even if that spell's level is lower than that of\nchromatic wall\n.\nRedThe wall destroys ranged weapon ammunition (such as arrows and crossbow bolts) that would pass through, and it deals 20 fire damage to anyone passing through, with abasicReflex save.Cone of coldcan counteract a redchromatic wall.OrangeThe wall destroysthrownweapons that would pass through, and it deals 25 acid damage to anyone passing through, with a basic Reflex save.Gust of windcan counteract an orangechromatic wall.YellowThe wall stopsacid,cold,electricity,fire,force,negative,positive, andsoniceffects from passing through, and it deals 30 electricity damage to anyone passing through, with a basic Reflex save.Disintegratecan counteract a yellowchromatic wall.GreenThe wall stops toxins, gases, and breath weapons from passing through. It deals 10 poison damage to anyone passing through and makes themenfeebled 1for 1 minute. A basic Fortitude save reduces the damage and negates the enfeebled condition on a success.Passwallcan counteract a greenchromatic wall."
+    },
+    {
+        "id": "circle-of-protection",
+        "Name": "Circle of Protection",
+        "Actions": "Three Actions",
+        "Level": "3",
+        "Traits": [
+            "Uncommon",
+            "Abjuration"
+        ],
+        "Source": "Core Rulebook pg. 324",
+        "Traditions": "divine , occult",
+        "Cast": "[three-actions] material , somatic , verbal",
+        "Range": "touch;",
+        "Area": "10-foot emanation centered on the touched creature",
+        "Duration": "1 minute",
+        "heightened": [
+            {
+                "label": "4th",
+                "text": "The duration increases to 1 hour."
+            }
+        ],
+        "Description": "You ward a creature and those nearby against a specified alignment. Choose chaotic, evil, good, or lawful; this spell gains the opposing trait. Creatures in the area gain a +1 status bonus to AC against attacks by creatures of the chosen alignment and to saves against effects from such creatures. This bonus increases to +3 against effects from such creatures that directly control the target and attacks made by summoned creatures of the chosen alignment. Summoned creatures of the chosen alignment can't willingly enter the area without succeeding at a Will save; repeated attempts use the first save result."
+    },
+    {
+        "id": "crusade",
+        "Name": "Crusade",
+        "Actions": "Two Actions",
+        "Level": "9",
+        "Traits": [
+            "Uncommon",
+            "Enchantment",
+            "Linguistic",
+            "Mental"
+        ],
+        "Source": "Core Rulebook pg. 327",
+        "Traditions": "divine",
+        "Cast": "[two-actions] somatic , verbal",
+        "Range": "60 feet;",
+        "Targets": "up to 4 creatures",
+        "Duration": "10 minutes",
+        "heightened": [
+            {
+                "label": "10th",
+                "text": "The level for each category increases by 2."
+            }
+        ],
+        "Description": "You issue a divine mandate or proclaim a cause to the targets. It can be to attain an item, claim a patch of land, slay a creature, war with a group, or be entirely peaceful. Your cause can't force the targets to harm one another or themselves. The targets become completely dedicated to that cause, depending on their levels. They choose their own actions, but they favor direct action over inaction or indirect action.\n13th or LowerThe target is so dedicated to the cause that it pursues the cause to the death (unless you say otherwise).14thThe target is dedicated to the cause, but the spell ends for the target if it's reduced to half its maximum Hit Points or fewer.15thAs 14th, plus the target can attempt a Will save at the end of each of its turns to end the spell for itself.\nThe spell ends for all creatures if you or one of your allies uses a\nhostile action\nagainst a target, or when the cause is completed. The GM might determine this spell has alignment traits befitting the cause."
+    },
+    {
+        "id": "death-knell",
+        "Name": "Death Knell",
+        "Actions": "Two Actions",
+        "Level": "2",
+        "Traits": [
+            "Death",
+            "Necromancy"
+        ],
+        "Source": "Core Rulebook pg. 328",
+        "Traditions": "divine , occult",
+        "Cast": "[two-actions] somatic , verbal",
+        "Range": "touch;",
+        "Targets": "1 living creature that has 0 HP",
+        "Saving Throw": "Will",
+        "Description": "You snuff the life out of a creature on the brink of death. The target must attempt a Will save. If this kills it, you gain 10 temporary HP and a +1 status bonus to attack and damage rolls for 10 minutes.\nCritical Success\nThe target is unaffected.\nSuccess\nThe target's\ndying\nvalue increases by 1.\nFailure\nThe target dies."
+    },
+    {
+        "id": "death-ward",
+        "Name": "Death Ward",
+        "Actions": "Two Actions",
+        "Level": "5",
+        "Traits": [
+            "Abjuration"
+        ],
+        "Source": "Core Rulebook pg. 328",
+        "Traditions": "divine , occult , primal",
+        "Bloodline": "psychopomp",
+        "Cast": "[two-actions] somatic , verbal",
+        "Range": "touch;",
+        "Targets": "1 living creature touched",
+        "Duration": "10 minutes",
+        "Description": "You shield a creature from the ravages of negative energy. It receives a +4 status bonus to saves against\ndeath\nand\nnegative\neffects, gains negative resistance 10, and suppresses the effects of the\ndoomed\ncondition."
+    },
+    {
+        "id": "detect-alignment",
+        "Name": "Detect Alignment",
+        "Actions": "Two Actions",
+        "Level": "1",
+        "Traits": [
+            "Uncommon",
+            "Detection",
+            "Divination"
+        ],
+        "Source": "Core Rulebook pg. 328",
+        "Traditions": "divine , occult",
+        "Cast": "[two-actions] somatic , verbal",
+        "Area": "30-foot emanation",
+        "heightened": [
+            {
+                "label": "2nd",
+                "text": "You learn each aura's location and strength. Alignment Aura The strength of an alignment aura depends on the level of the creature, item, or spell. The auras of undead, clerics and other divine spellcasters with a patron deity, and creatures from the Outer Sphere are one step stronger than normal (faint instead of none, for example). Alignment Aura Creature or Item LevelSpell or Effect LevelAura Strength0-5—None6-100-3Faint11-154-7Moderate16-208-9Powerful21+10Overwhelming"
+            }
+        ],
+        "Description": "Your eyes glow as you sense aligned auras. Choose chaotic, evil, good, or lawful. You detect auras of that alignment. You receive no information beyond presence or absence. You can choose not to detect creatures or effects you're aware have that alignment.\nOnly creatures of 6th level or higher—unless divine spellcasters, undead, or beings from the Outer Sphere—have alignment auras."
+    }
+]

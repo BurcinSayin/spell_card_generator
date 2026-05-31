@@ -1,0 +1,36 @@
+{
+  "name": "pathfinder-spell-cards",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 3500",
+    "predev": "tsx --env-file-if-exists=.env scripts/ensureData.ts",
+    "prebuild": "tsx --env-file-if-exists=.env scripts/ensureData.ts",
+    "build": "tsc -b && vite build",
+    "build:data:pf2e": "tsx src/systems/pf2e/build.ts",
+    "preview": "vite preview",
+    "deploy": "bash deploy.sh",
+    "prepare:upload": "npm run build && tsx scripts/prepareUpload.ts"
+  },
+  "dependencies": {
+    "fuse.js": "^7.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-window": "^1.8.10",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-window": "^1.8.8",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}

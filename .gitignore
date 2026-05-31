@@ -1,0 +1,19 @@
+node_modules
+dist
+dist-ssr
+upload
+.DS_Store
+.env
+.env.*
+!.env.example
+*.local
+*.log
+.vite
+.idea
+.claude
+AGENTS.md
+CLAUDE.md
+
+# Spell data: copied from upstream sources at build time (see scripts/ensureData.ts), not tracked
+/public/data/pf1e/
+/public/data/pf2e/
