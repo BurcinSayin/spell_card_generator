@@ -20,7 +20,7 @@
  * remote objects absent locally are removed, except index.html and anything under data/.
  */
 
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep, extname } from 'node:path';
 import {
   S3Client,
@@ -64,11 +64,91 @@ function required(name: string, value: string | undefined): string {
   return value;
 }
 
+/**
+ * Load `.env` into process.env with OVERRIDE, so the file wins over any
+ * pre-existing OS/shell environment variables. Node's `--env-file` flag does the
+ * opposite — existing OS vars win — which silently shadows the `.env` AWS
+ * credentials (a 20/40-char `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY` left in
+ * the OS env would override the file). Returns the parsed key→value map, used to
+ * report each value's source. No-op if `.env` is absent (mirrors
+ * `--env-file-if-exists`).
+ */
+function loadEnvOverride(path = '.env'): Record<string, string> {
+  const parsed: Record<string, string> = {};
+  if (!existsSync(path)) return parsed;
+  for (const rawLine of readFileSync(path, 'utf8').split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const eq = line.indexOf('=');
+    if (eq === -1) continue;
+    const key = line.slice(0, eq).trim();
+    if (!key) continue;
+    let value = line.slice(eq + 1).trim();
+    if (
+      value.length >= 2 &&
+      ((value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'")))
+    ) {
+      value = value.slice(1, -1);
+    }
+    parsed[key] = value;
+    process.env[key] = value; // override OS env
+  }
+  return parsed;
+}
+
+// Snapshot which keys came from the OS env BEFORE the override, so the resolved
+// config print can attribute each value to `.env` vs `OS env`. Then let `.env` win.
+const osEnvKeys = new Set(Object.keys(process.env));
+const fileEnv = loadEnvOverride();
+
 const BUCKET = required('S3_BUCKET', process.env.S3_BUCKET);
 const REGION = required('AWS_REGION', process.env.AWS_REGION ?? process.env.AWS_DEFAULT_REGION);
 const accessKeyId = required('AWS_ACCESS_KEY_ID', process.env.AWS_ACCESS_KEY_ID);
 const secretAccessKey = required('AWS_SECRET_ACCESS_KEY', process.env.AWS_SECRET_ACCESS_KEY);
 const sessionToken = process.env.AWS_SESSION_TOKEN;
+
+/** Where a given env var ended up coming from. */
+function sourceOf(key: string): string {
+  if (key in fileEnv) return '.env';
+  if (osEnvKeys.has(key)) return 'OS env';
+  return 'unset';
+}
+
+/**
+ * Mask a secret for display: keep `keepFront` leading + `keepBack` trailing
+ * chars, star out the middle. Fully starred if too short to reveal any.
+ */
+function mask(value: string, keepFront: number, keepBack: number): string {
+  if (value.length <= keepFront + keepBack) return '*'.repeat(value.length);
+  return value.slice(0, keepFront) + '*'.repeat(value.length - keepFront - keepBack) + value.slice(-keepBack);
+}
+
+/** Print the resolved AWS config (credentials masked) and each value's source. */
+function printResolvedConfig(): void {
+  const regionKey = process.env.AWS_REGION ? 'AWS_REGION' : 'AWS_DEFAULT_REGION';
+  const rows: Array<[string, string, string]> = [
+    ['S3_BUCKET', BUCKET, sourceOf('S3_BUCKET')],
+    ['AWS_REGION', REGION, sourceOf(regionKey)],
+    ['AWS_ACCESS_KEY_ID', mask(accessKeyId, 4, 4), sourceOf('AWS_ACCESS_KEY_ID')],
+    [
+      'AWS_SECRET_ACCESS_KEY',
+      `${mask(secretAccessKey, 0, 4)} [len ${secretAccessKey.length}]`,
+      sourceOf('AWS_SECRET_ACCESS_KEY'),
+    ],
+    [
+      'AWS_SESSION_TOKEN',
+      sessionToken ? mask(sessionToken, 0, 4) : '(unset)',
+      sourceOf('AWS_SESSION_TOKEN'),
+    ],
+  ];
+  const width = Math.max(...rows.map(([name]) => name.length));
+  console.log('deploy: resolved AWS config');
+  for (const [name, value, source] of rows) {
+    const src = source === 'unset' ? '' : ` (${source})`;
+    console.log(`  ${name.padEnd(width)} = ${value}${src}`);
+  }
+}
 
 const client = new S3Client({
   region: REGION,
@@ -128,6 +208,13 @@ async function deleteKeys(keys: string[]): Promise<void> {
 }
 
 async function main(): Promise<void> {
+  printResolvedConfig();
+
+  if (process.argv.includes('--check') || process.env.DEPLOY_CHECK) {
+    console.log('deploy: --check mode — no objects listed, uploaded, or deleted');
+    return;
+  }
+
   const files = walk(DIST);
   const localKeys = new Set(files.map(toKey));
 
