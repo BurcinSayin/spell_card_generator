@@ -8,6 +8,8 @@ interface Props {
     | 'grip'
     | 'pdf'
     | 'sliders'
+    | 'filter'
+    | 'list'
     | 'chevron'
     | 'trash';
   size?: number;
@@ -82,6 +84,21 @@ export function Icon({ name, size = 16 }: Props): JSX.Element | null {
           <circle cx="16" cy="7" r="2" />
           <path d="M4 17h2M10 17h10" />
           <circle cx="8" cy="17" r="2" />
+        </svg>
+      );
+    case 'filter':
+      return (
+        <svg {...p}>
+          <path d="M4 5h16l-6 7v6l-4 2v-8L4 5z" />
+        </svg>
+      );
+    case 'list':
+      return (
+        <svg {...p}>
+          <path d="M8 6h13M8 12h13M8 18h13" />
+          <circle cx="4" cy="6" r="1" fill="currentColor" stroke="none" />
+          <circle cx="4" cy="12" r="1" fill="currentColor" stroke="none" />
+          <circle cx="4" cy="18" r="1" fill="currentColor" stroke="none" />
         </svg>
       );
     case 'chevron':

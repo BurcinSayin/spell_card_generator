@@ -11,6 +11,7 @@ import { ClassLevelControl } from './filterControls/ClassLevelControl';
 interface Props {
   optionCounts: Record<string, Record<string, number>>;
   resultCount: number;
+  onCloseDrawer?: () => void;
 }
 
 function isNonEmpty(value: unknown): boolean {
@@ -48,7 +49,7 @@ function activeFilterCount(
   return count;
 }
 
-export function Filters({ optionCounts, resultCount }: Props): JSX.Element {
+export function Filters({ optionCounts, resultCount, onCloseDrawer }: Props): JSX.Element {
   const systemId = useActiveSystemId();
   const system = getSystem(systemId);
   const filters = useFilters();
@@ -68,8 +69,31 @@ export function Filters({ optionCounts, resultCount }: Props): JSX.Element {
         display: 'flex',
         flexDirection: 'column',
         minHeight: 0,
+        height: '100%',
       }}
     >
+      {onCloseDrawer && (
+        <div className="filters-drawer-header">
+          <span>Filters</span>
+          <button
+            type="button"
+            onClick={onCloseDrawer}
+            aria-label="Close filters"
+            style={{
+              border: 'none',
+              background: 'transparent',
+              cursor: 'pointer',
+              display: 'grid',
+              placeItems: 'center',
+              padding: 4,
+              borderRadius: 6,
+              color: 'var(--ink)',
+            }}
+          >
+            <Icon name="x" size={18} />
+          </button>
+        </div>
+      )}
       {search && (
         <div style={{ padding: '14px 14px 10px' }}>
           <SearchControl
