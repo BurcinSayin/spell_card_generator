@@ -23,6 +23,7 @@ export function SpellRow({
 
   return (
     <div
+      className="spell-row"
       onClick={onClick}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
@@ -74,6 +75,7 @@ export function SpellRow({
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
           <span style={{ fontWeight: 600, fontSize: 14 }}>{row.name}</span>
           <span
+            className="spell-row-subtitle"
             style={{
               fontSize: 10,
               color: 'var(--muted)',
@@ -108,6 +110,7 @@ export function SpellRow({
         {levelBadge}
       </span>
       <span
+        className="spell-row-source"
         style={{
           fontFamily: 'JetBrains Mono',
           fontSize: 10,

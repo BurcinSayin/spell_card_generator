@@ -58,6 +58,276 @@ input {
   border: 2px solid transparent;
 }
 
+/* ── App shell & responsive layout ─────────────────────────────── */
+
+.app-shell {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 264px 1fr 332px;
+  min-height: 0;
+}
+
+.panel-filters,
+.panel-spells,
+.panel-tray {
+  min-height: 0;
+  min-width: 0;
+}
+
+.panel-filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-spells {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-tray {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-backdrop {
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.topbar-meta {
+  display: block;
+}
+
+.topbar-filter-btn {
+  display: none;
+}
+
+.spell-list-hint {
+  display: inline;
+}
+
+.spell-row-source {
+  display: block;
+}
+
+.pdf-modal-header {
+  flex-wrap: nowrap;
+}
+
+.pdf-modal-meta {
+  white-space: nowrap;
+}
+
+.pdf-page-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.pdf-page-sheet {
+  flex-shrink: 0;
+}
+
+.filters-drawer-header {
+  display: none;
+}
+
+/* Tablet: hide filters sidebar, show spells + tray; filters as drawer */
+@media (max-width: 1023px) {
+  .app-main {
+    grid-template-columns: 1fr min(300px, 38vw);
+  }
+
+  .panel-filters {
+    display: none;
+  }
+
+  .panel-filters.drawer-open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(320px, 88vw);
+    z-index: 200;
+    box-shadow: 4px 0 24px rgba(31, 26, 20, 0.18);
+  }
+
+  .drawer-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 26, 20, 0.45);
+    z-index: 199;
+  }
+
+  .topbar-filter-btn {
+    display: inline-flex;
+  }
+
+  .filters-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule2);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .topbar-meta--spells {
+    display: none;
+  }
+}
+
+/* Mobile: single panel + bottom nav */
+@media (max-width: 767px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-filters,
+  .panel-spells,
+  .panel-tray {
+    display: none;
+  }
+
+  .panel-filters.panel-visible,
+  .panel-spells.panel-visible,
+  .panel-tray.panel-visible {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-filters.drawer-open {
+    position: static;
+    width: auto;
+    box-shadow: none;
+  }
+
+  .drawer-backdrop {
+    display: none !important;
+  }
+
+  .topbar-filter-btn {
+    display: none;
+  }
+
+  .filters-drawer-header {
+    display: none;
+  }
+
+  .topbar-meta {
+    display: none;
+  }
+
+  .topbar-subtitle {
+    display: none;
+  }
+
+  .spell-list-hint {
+    display: none;
+  }
+
+  .spell-row-source {
+    display: none;
+  }
+
+  .spell-row {
+    grid-template-columns: 18px 6px 1fr auto !important;
+    column-gap: 8px !important;
+    padding: 10px 12px !important;
+  }
+
+  .spell-row-subtitle {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 4px;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    background: var(--paper);
+    border-top: 1px solid var(--rule2);
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 4px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+    transition: background 0.12s, color 0.12s;
+  }
+
+  .mobile-nav-btn--active {
+    background: var(--selected);
+    color: var(--accent);
+  }
+
+  .mobile-nav-btn__icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .mobile-nav-btn__badge {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9px;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+  }
+
+  .pdf-modal-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 14px !important;
+  }
+
+  .pdf-modal-meta {
+    white-space: normal;
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .pdf-modal-content {
+    padding: 16px 12px !important;
+  }
+}
+
 .print-host {
   display: none;
 }

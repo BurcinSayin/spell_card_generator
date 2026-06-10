@@ -94,6 +94,7 @@ export function PdfModal({ records, onClose }: Props): JSX.Element {
       }}
     >
       <div
+        className="pdf-modal-header"
         onClick={(e) => e.stopPropagation()}
         style={{
           display: 'flex',
@@ -106,6 +107,7 @@ export function PdfModal({ records, onClose }: Props): JSX.Element {
       >
         <span style={{ fontWeight: 700, fontSize: 15 }}>PDF Preview</span>
         <span
+          className="pdf-modal-meta"
           style={{
             fontFamily: 'JetBrains Mono',
             fontSize: 11,
@@ -158,6 +160,7 @@ export function PdfModal({ records, onClose }: Props): JSX.Element {
       </div>
 
       <div
+        className="pdf-modal-content"
         onClick={(e) => e.stopPropagation()}
         style={{
           flex: 1,
@@ -202,15 +205,17 @@ function PageSheet({ pageNum, totalPages, items, layout }: PageProps): JSX.Eleme
   const rows = 2;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 8,
-        alignItems: 'center',
-      }}
-    >
+    <div className="pdf-page-wrap">
       <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+          alignItems: 'center',
+        }}
+      >
+      <div
+        className="pdf-page-sheet"
         style={{
           width: W,
           height: H,
@@ -259,6 +264,7 @@ function PageSheet({ pageNum, totalPages, items, layout }: PageProps): JSX.Eleme
         }}
       >
         page {pageNum} / {totalPages}
+      </div>
       </div>
     </div>
   );

@@ -50,6 +50,7 @@ export function SpellList({ records, loaded }: Props): JSX.Element {
         </span>
         <div style={{ flex: 1 }} />
         <span
+          className="spell-list-hint"
           style={{
             fontFamily: 'JetBrains Mono',
             fontSize: 10,
