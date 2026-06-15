@@ -1,9 +1,10 @@
 # Third-party content and attribution
 
-This repository contains two distinct categories of material with different licensing:
+This repository contains material in several categories with different licensing:
 
 1. **The application source code** (everything under `src/`, `scripts/`, `public/` excluding `public/data/`, and the configuration files at the repo root) is original work by the project maintainer and is licensed under the **MIT License** — see [`LICENSE`](LICENSE).
-2. **The Pathfinder spell text** loaded by the application — both the truncated samples in `sample_data/` and any complete spell JSON supplied by contributors via `SPELLS_PF1E_PATH` / `SPELLS_PF2E_PATH` — is the property of **Paizo Inc.** and is redistributed under the licenses described below.
+2. **The Pathfinder spell text** loaded by the application — both the truncated samples in `sample_data/` and any complete spell JSON supplied by contributors via `SPELLS_PF1E_PATH` / `SPELLS_PF2E_PATH` — is the property of **Paizo Inc.** and is redistributed under the Pathfinder licenses described below.
+3. **The Dungeons & Dragons 5th Edition spell text** — the samples in `sample_data/` and any JSON supplied via `SPELLS_DND5E_PATH` — is from the **System Reference Document 5.2**, © **Wizards of the Coast LLC**, redistributed under the **Creative Commons Attribution 4.0** license as described below.
 
 ---
 
@@ -41,9 +42,25 @@ Pre-Remaster PF2e content that has not been republished under the ORC License re
 
 ---
 
+## Dungeons & Dragons 5th Edition (SRD 5.2) spell data — Creative Commons Attribution 4.0 (CC BY 4.0)
+
+D&D 5e spell text is from the **System Reference Document 5.2**, licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
+
+> This product includes material from the System Reference Document 5.2 ("SRD 5.2") by Wizards of the Coast LLC, available at <https://www.dndbeyond.com/srd>. The SRD 5.2 is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0), available at <https://creativecommons.org/licenses/by/4.0/legalcode>.
+
+**Modifications.** The SRD 5.2 spell text in this project has been modified — parsed from upstream JSON, normalized, and reformatted into spell-card layouts. These modifications are the work of the project maintainer and are not endorsed by Wizards of the Coast.
+
+**Provenance.** The D&D 5e spell data was obtained via Open5e (<https://open5e.com>, API at <https://api.open5e.com>), which redistributes the SRD under CC BY 4.0.
+
+Anyone supplying their own D&D 5e spell JSON is responsible for retaining this CC BY 4.0 attribution — title, author, copyright, a link to the license, and an indication of any modifications — through to any downstream redistribution.
+
+---
+
 ## Trademark and affiliation disclaimer
 
 "Pathfinder" and the Pathfinder logo, "Paizo," and related marks are trademarks of Paizo Inc. This project is an independent, unofficial fan tool. **It is not affiliated with, endorsed by, sponsored by, or specifically approved by Paizo Inc.** No claim is made to any Paizo trademark or to Paizo's Product Identity.
+
+"Dungeons & Dragons," "D&D," "Wizards of the Coast," and related marks are trademarks of Wizards of the Coast LLC. CC BY 4.0 licenses the SRD 5.2 text only and grants no rights to these trademarks. This project is independent and unofficial and **is not affiliated with, endorsed by, sponsored by, or approved by Wizards of the Coast.**
 
 ---
 

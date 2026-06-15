@@ -35,6 +35,10 @@ const pf1e: SystemConfig = {
   id: 'pf1e',
   label: 'Pathfinder 1e',
   shortLabel: 'pathfinder 1e · v0.1',
+  attribution: {
+    text: 'PF1e — Open Game Content © Paizo Inc., OGL v1.0a',
+    href: 'https://opengamingfoundation.org/ogl.html',
+  },
   loadRecords: () =>
     loadPf1eSpells() as unknown as Promise<Record_[]>,
   filter: filterPf1e as unknown as SystemConfig['filter'],

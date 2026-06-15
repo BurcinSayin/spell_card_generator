@@ -100,10 +100,18 @@ export interface SplitCaps {
   backCap: number;
 }
 
+/** Short attribution/credits line shown in the app chrome (CC-BY / OGL / ORC compliance). */
+export interface Attribution {
+  text: string;
+  href?: string;
+}
+
 export interface SystemConfig {
   id: string;
   label: string;
   shortLabel: string;
+  /** Per-system content attribution surfaced in the app footer; omit for none. */
+  attribution?: Attribution;
   loadRecords: () => Promise<Record_[]>;
   filter: (records: Record_[], state: FilterState) => Record_[];
   emptyFilterState: FilterState;

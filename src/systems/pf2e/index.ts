@@ -32,6 +32,10 @@ const pf2e: SystemConfig = {
   id: 'pf2e',
   label: 'Pathfinder 2e',
   shortLabel: 'pathfinder 2e · v0.1',
+  attribution: {
+    text: 'PF2e Remaster — © Paizo Inc., ORC License',
+    href: 'https://paizo.com/orclicense',
+  },
   loadRecords: () => loadPf2eSpells() as unknown as Promise<Record_[]>,
   filter: filterPf2e as unknown as SystemConfig['filter'],
   emptyFilterState: {

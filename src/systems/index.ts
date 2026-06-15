@@ -1,10 +1,12 @@
 import type { SystemConfig } from './types';
 import pf1e from './pf1e';
 import pf2e from './pf2e';
+import dnd5e from './dnd5e';
 
 const SYSTEMS: Record<string, SystemConfig> = {
   [pf1e.id]: pf1e,
   [pf2e.id]: pf2e,
+  [dnd5e.id]: dnd5e,
 };
 
 export const defaultSystemId = pf1e.id;

@@ -54,4 +54,5 @@ Vite · React 18 · TypeScript · Tailwind CSS · Zustand · Fuse.js · `react-w
 
 - **Code:** MIT — see [LICENSE](LICENSE).
 - **Pathfinder spell content** (in `sample_data/` and any user-supplied JSON) is the property of Paizo Inc., redistributed under the Open Game License v1.0a (PF1e) and the ORC License (PF2e Remaster). Full attribution and Section 15 notices: [NOTICES.md](NOTICES.md).
-- This project is an independent fan tool and is **not affiliated with or endorsed by Paizo Inc.**
+- **D&D 5e spell content** (in `sample_data/` and any user-supplied JSON) is from the System Reference Document 5.2, © Wizards of the Coast LLC, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and obtained via [Open5e](https://open5e.com); the text has been modified (reformatted into cards). Full notice: [NOTICES.md](NOTICES.md).
+- This project is an independent fan tool and is **not affiliated with or endorsed by Paizo Inc. or Wizards of the Coast.**

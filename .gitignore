@@ -17,6 +17,7 @@ CLAUDE.md
 # Spell data: copied from upstream sources at build time (see scripts/ensureData.ts), not tracked
 /public/data/pf1e/
 /public/data/pf2e/
+/public/data/dnd5e/
 
 # TypeScript incremental build cache
 *.tsbuildinfo

@@ -5,6 +5,7 @@ import { SpellList } from './components/Browser/SpellList';
 import { SelectedTray } from './components/Tray/SelectedTray';
 import { PdfModal } from './components/Preview/PdfModal';
 import { MobileNav, type MobilePanel } from './components/MobileNav';
+import { Attribution } from './components/Attribution';
 import { PrintSheet } from './print/PrintSheet';
 import { useRecords } from './hooks/useRecords';
 import {
@@ -150,6 +151,8 @@ export function App(): JSX.Element {
           />
         </div>
       </div>
+
+      <Attribution />
 
       <MobileNav
         active={mobilePanel}

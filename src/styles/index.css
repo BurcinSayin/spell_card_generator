@@ -68,6 +68,31 @@ input {
   overflow: hidden;
 }
 
+.app-attribution {
+  flex-shrink: 0;
+  padding: 4px 14px;
+  border-top: 1px solid var(--rule2);
+  background: var(--paper);
+  font-family: 'JetBrains Mono';
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-attribution a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.app-attribution a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .app-main {
   flex: 1;
   display: grid;
